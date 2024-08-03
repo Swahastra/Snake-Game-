@@ -1,22 +1,24 @@
 /* Import Google font */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
 }
+
 body {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 100vh;
   background: rgb(22, 1, 20);
-  min-height: 100vh;
 }
+
 .wrapper {
   width: 70vmin;
-  height: 75vmin;
+  height: 85vmin;
   display: flex;
   overflow: hidden;
   flex-direction: column;
@@ -25,6 +27,50 @@ body {
   background: #293447;
   box-shadow: 0 20px 40px rgba(99, 118, 197, 0.2);
 }
+
+.levels {
+  gap: 10px;
+  display: flex;
+  flex-direction: column; /* Changed to column for vertical alignment */
+  justify-content: center;
+  align-items: center; /* Centering levels */
+}
+
+.gradient-button {
+  font-weight: bold;
+  border-radius: 50px;
+  color: white;
+  width: 120px;
+  height: 40px;
+  background: linear-gradient(to right, #160114, #293447);
+  background-size: 200%;
+  animation: gradient-animation 5s infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
+}
+
+.restartButton, .back-button {
+  align-content: center;
+  font-weight: bold;
+  border-radius: 50px;
+  color: white;
+  width: 120px;
+  height: 40px;
+  background: linear-gradient(to right, #160114, #293447);
+  background-size: 200%;
+  animation: gradient-animation 5s infinite;
+}
+
 .game-details {
   color: #B8C6DC;
   font-weight: 500;
@@ -33,6 +79,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 .play-board {
   height: 100%;
   width: 100%;
@@ -40,18 +87,23 @@ body {
   background: #212837;
   grid-template: repeat(30, 1fr) / repeat(30, 1fr);
 }
+
 .play-board .food {
   background: #d614a6;
 }
+
 .play-board .head {
   background: #60CBFF;
 }
 
 .controls {
-  display: none;
+  display: flex;
   justify-content: space-between;
+  z-index: 999;
 }
+
 .controls i {
+  font-weight: bold;
   padding: 25px 0;
   text-align: center;
   font-size: 1.3rem;
@@ -61,20 +113,42 @@ body {
   border-right: 1px solid #171B26;
 }
 
+#backButton {
+  align-self: center;
+  margin-top: 20px; /* Space from the controls */
+}
+
 @media screen and (max-width: 800px) {
   .wrapper {
     width: 90vmin;
-    height: 115vmin;
+    height: 90vmin; /* Adjusted height for mobile */
   }
   .game-details {
     font-size: 1rem;
-    padding: 15px 27px;
+    padding: 15px 15px; /* Reduced padding for mobile */
   }
   .controls {
-    display: flex;
+    flex-direction: row;
   }
   .controls i {
-    padding: 15px 0;
-    font-size: 1rem;
+    padding: 10px 0; /* Reduced padding for mobile */
+    font-size: 1.2rem; /* Adjusted font size for mobile */
   }
+  #backButton {
+    margin-top: 15px; /* Adjusted space for mobile */
+  }
+}
+
+/* Add this CSS to style the game over modal and restart button */
+.game-over-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
 }
