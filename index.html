@@ -1,29 +1,45 @@
 <!DOCTYPE html>
-<!-- Coding By CodingNepal - youtube.com/codingnepal -->
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Snake Game</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-        <div class="wrapper">
-            <div class="game-details">
-                <span class="score">Score: 0</span>
-                <span class="high-score">High Score:0 </span>
-            </div>
-            <div class="play-board"></div>
-            <div class="controls">
-                <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long"></i>
-                <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long"></i>
-                <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long"></i>
-                <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long"></i>
-            </div>
-        </div>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snake Game</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap">
+</head>
+<body>
+  <div id="levelSelection" class="wrapper">
+    <div class="levels">
+      <button class="level-button gradient-button" data-level="1">Easy</button>
+      <button class="level-button gradient-button" data-level="2">Medium</button>
+      <button class="level-button gradient-button" data-level="3">Hard</button>
+    </div>
+  </div>
+
+  <div id="gameSection" class="wrapper" style="display:none;">
+    <div class="game-details">
+      <span class="score">Score: 0</span>
+      <span class="high-score">High Score: 0</span>
+      <span class="level">Level: 1</span>
     </div>
 
-  </body>
+    <div class="play-board"></div>
+
+    <div class="controls">
+      <i data-key="ArrowLeft" class="fa-solid fa-arrow-left-long">←</i>
+      <i data-key="ArrowUp" class="fa-solid fa-arrow-up-long">↑</i>
+      <i data-key="ArrowRight" class="fa-solid fa-arrow-right-long">→</i>
+      <i data-key="ArrowDown" class="fa-solid fa-arrow-down-long">↓</i>
+    </div>
+    <button id="backButton" class="back-button">Back</button>
+
+    <div id="gameOverModal" class="game-over-modal">
+      Your Out
+      <button id="restartButton" class="restartButton">Restart</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
